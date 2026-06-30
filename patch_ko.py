@@ -122,12 +122,12 @@ def patch_update_check_url():
 
     content = content.replace(
         "https://api.github.com/repos/Zephyruso/zashboard/releases/latest",
-        "https://api.github.com/repos/hckwon767/zashboard/releases/latest",
+        "https://api.github.com/repos/hckwon767/dashboard-ko/releases/latest",
     )
 
     with open(path, "w", encoding="utf-8") as f:
         f.write(content)
-    print("patched update-check URL to use fork repo")
+    print("patched update-check URL to use new repo")
     
 def customize_version_display():
     path = "src/components/settings/general/ZashboardSettings.vue"
@@ -139,12 +139,16 @@ def customize_version_display():
         re.DOTALL,
     )
 
-    new_block = '''<div class="text-lg font-semibold">
+    new_block = '''<a
+          href="https://github.com/hckwon767/dashboard-ko"
+          target="_blank"
+          class="text-lg font-semibold"
+        >
           대시보드
           <span class="text-sm font-normal opacity-50">
             {{ zashboardVersion }}
           </span>
-        </div>'''
+        </a>'''
 
     content, count = pattern.subn(new_block, content)
 
@@ -153,7 +157,6 @@ def customize_version_display():
     else:
         print("WARNING: version display block not found, skipping")
 
-    # commitId를 더 이상 화면에 안 쓰므로 선언도 제거
     content = re.sub(r"\nconst commitId = __COMMIT_ID__\n", "\n", content)
 
     with open(path, "w", encoding="utf-8") as f:
