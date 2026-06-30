@@ -162,6 +162,32 @@ def customize_version_display():
     with open(path, "w", encoding="utf-8") as f:
         f.write(content)
 
+def patch_default_language():
+    path = "src/store/settings.ts"
+    with open(path, encoding="utf-8") as f:
+        content = f.read()
+
+    old = """export const language = useStorage<LANG>(
+  'config/language',
+  Object.values(LANG).includes(navigator.language as LANG)
+    ? (navigator.language as LANG)
+    : LANG.EN_US,
+)"""
+
+    new = """export const language = useStorage<LANG>(
+  'config/language',
+  LANG.KO_KR,
+)"""
+
+    if old in content:
+        content = content.replace(old, new)
+        print("patched default language to KO_KR")
+    else:
+        print("WARNING: default language block not found, skipping")
+
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(content)
+        
 if __name__ == "__main__":
     patch_lang_enum()
     patch_i18n_index()
@@ -169,3 +195,4 @@ if __name__ == "__main__":
     #remove_dashboard_upgrade_menu()
     patch_update_check_url()
     customize_version_display()
+    patch_default_language()
