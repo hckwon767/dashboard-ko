@@ -162,6 +162,100 @@ def customize_version_display():
     with open(path, "w", encoding="utf-8") as f:
         f.write(content)
         
+def patch_latency_targets():
+    # 1) src/api/latency.ts: cloudflare -> naver, github -> google
+    path = "src/api/latency.ts"
+    with open(path, encoding="utf-8") as f:
+        content = f.read()
+
+    content = content.replace(
+        """export const getCloudflareLatencyAPI = () => {
+  return getLatencyFromUrlAPI('https://www.cloudflare.com/favicon.ico')
+}""",
+        """export const getNaverLatencyAPI = () => {
+  return getLatencyFromUrlAPI('https://www.naver.com/favicon.ico')
+}""",
+    )
+    content = content.replace(
+        """export const getGithubLatencyAPI = () => {
+  return getLatencyFromUrlAPI('https://github.githubassets.com/favicon.ico')
+}""",
+        """export const getGoogleLatencyAPI = () => {
+  return getLatencyFromUrlAPI('https://www.google.com/favicon.ico')
+}""",
+    )
+
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(content)
+
+    # 2) src/composables/overview.ts: ref 이름 변경
+    path = "src/composables/overview.ts"
+    with open(path, encoding="utf-8") as f:
+        content = f.read()
+
+    content = content.replace(
+        "export const githubLatency = ref<number[]>([])",
+        "export const googleLatency = ref<number[]>([])",
+    )
+    content = content.replace(
+        "export const cloudflareLatency = ref<number[]>([])",
+        "export const naverLatency = ref<number[]>([])",
+    )
+
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(content)
+
+    # 3) ConnectionStatus.vue: import 및 targets 배열 변경
+    path = "src/components/overview/ConnectionStatus.vue"
+    with open(path, encoding="utf-8") as f:
+        content = f.read()
+
+    content = content.replace(
+        """import {
+  getBaiduLatencyAPI,
+  getCloudflareLatencyAPI,
+  getGithubLatencyAPI,
+  getYouTubeLatencyAPI,
+} from '@/api/latency'
+import {
+  baiduLatency,
+  cloudflareLatency,
+  githubLatency,
+  youtubeLatency,
+} from '@/composables/overview'""",
+        """import {
+  getBaiduLatencyAPI,
+  getGoogleLatencyAPI,
+  getNaverLatencyAPI,
+  getYouTubeLatencyAPI,
+} from '@/api/latency'
+import {
+  baiduLatency,
+  googleLatency,
+  naverLatency,
+  youtubeLatency,
+} from '@/composables/overview'""",
+    )
+
+    content = content.replace(
+        """const targets = [
+  { name: 'Baidu', ref: baiduLatency, api: getBaiduLatencyAPI },
+  { name: 'Cloudflare', ref: cloudflareLatency, api: getCloudflareLatencyAPI },
+  { name: 'GitHub', ref: githubLatency, api: getGithubLatencyAPI },
+  { name: 'YouTube', ref: youtubeLatency, api: getYouTubeLatencyAPI },
+]""",
+        """const targets = [
+  { name: 'Baidu', ref: baiduLatency, api: getBaiduLatencyAPI },
+  { name: 'Naver', ref: naverLatency, api: getNaverLatencyAPI },
+  { name: 'Google', ref: googleLatency, api: getGoogleLatencyAPI },
+  { name: 'YouTube', ref: youtubeLatency, api: getYouTubeLatencyAPI },
+]""",
+    )
+
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(content)
+    print("patched latency targets (Baidu/Naver/Google/YouTube)")
+    
 if __name__ == "__main__":
     patch_lang_enum()
     patch_i18n_index()
@@ -169,3 +263,4 @@ if __name__ == "__main__":
     #remove_dashboard_upgrade_menu()
     patch_update_check_url()
     customize_version_display()
+    patch_latency_targets()
