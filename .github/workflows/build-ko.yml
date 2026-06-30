@@ -1,0 +1,67 @@
+name: Build Korean zashboard
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'ko.ts'
+      - 'patch_ko.py'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo (ko.ts, patch_ko.py)
+        uses: actions/checkout@v4
+
+      - name: Clone zashboard source (always fresh)
+        run: git clone --depth 1 https://github.com/Zephyruso/zashboard.git zashboard-src
+
+      - name: Copy ko.ts and patch script into source
+        run: |
+          cp ko.ts zashboard-src/src/i18n/ko.ts
+          cp patch_ko.py zashboard-src/patch_ko.py
+
+      - name: Apply Korean customizations
+        working-directory: zashboard-src
+        run: python3 patch_ko.py
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Enable pnpm
+        run: corepack enable
+
+      - name: Install dependencies
+        working-directory: zashboard-src
+        run: pnpm install
+
+      - name: Build
+        working-directory: zashboard-src
+        run: pnpm build:cdn-fonts
+
+      - name: Get version
+        id: get_version
+        working-directory: zashboard-src
+        run: echo "version=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
+
+      - name: Zip dist
+        working-directory: zashboard-src
+        run: |
+          cd dist
+          zip -r ../../zashboard-ko.zip .
+          cd ../..
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.get_version.outputs.version }}
+          name: zashboard Korean ${{ steps.get_version.outputs.version }}
+          files: zashboard-ko.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
