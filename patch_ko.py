@@ -273,6 +273,79 @@ def patch_dayjs_locale():
     with open(path, "w", encoding="utf-8") as f:
         f.write(content)
         
+def remove_url_settings_section():
+    path = "src/components/common/DashboardSettings.vue"
+    with open(path, encoding="utf-8") as f:
+        content = f.read()
+
+    old_block = """    <div class="settings-section-label">
+      {{ $t('dashboardSettingsUrl') }}
+    </div>
+    <div class="settings-grid">
+      <div class="setting-item max-sm:flex-col max-sm:items-start! max-sm:py-3">
+        <div class="setting-item-label shrink-0!">
+          {{ $t('importFromUrl') }}
+        </div>
+        <div class="flex items-center gap-2 max-sm:flex-wrap">
+          <div class="join flex-1">
+            <TextInput
+              v-model="importSettingsUrl"
+              class="max-w-none flex-1"
+            />
+            <button
+              class="btn btn-sm join-item"
+              @click="importSettingsFromUrlHandler()"
+            >
+              <ArrowDownTrayIcon class="h-4 w-4" />
+            </button>
+          </div>
+          <QuestionMarkCircleIcon
+            v-if="importSettingsUrl === DEFAULT_SETTINGS_URL"
+            class="h-4 w-4 shrink-0"
+            @mouseenter="
+              showTip($event, $t('importFromBackendTip'), {
+                appendTo: 'parent',
+              })
+            "
+          />
+          <button
+            v-else
+            class="btn btn-sm"
+            @click="importSettingsUrl = DEFAULT_SETTINGS_URL"
+          >
+            {{ $t('reset') }}
+          </button>
+        </div>
+      </div>
+      <div class="setting-item">
+        <div class="setting-item-label flex items-center gap-2">
+          {{ $t('autoImportFromUrl') }}
+          <QuestionMarkCircleIcon
+            class="h-4 w-4 cursor-pointer"
+            @mouseenter="
+              showTip($event, $t('autoImportFromUrlTip'), {
+                appendTo: 'parent',
+              })
+            "
+          />
+        </div>
+        <input
+          v-model="autoImportSettings"
+          type="checkbox"
+          class="toggle"
+        />
+      </div>
+    </div>"""
+
+    if old_block in content:
+        content = content.replace(old_block, "")
+        print("removed URL settings section")
+    else:
+        print("WARNING: URL settings section not found, skipping")
+
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(content)
+        
 if __name__ == "__main__":
     patch_lang_enum()
     patch_i18n_index()
@@ -282,3 +355,4 @@ if __name__ == "__main__":
     customize_version_display()
     patch_latency_targets()
     patch_dayjs_locale()
+    remove_url_settings_section()
