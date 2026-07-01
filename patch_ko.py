@@ -255,7 +255,24 @@ import {
     with open(path, "w", encoding="utf-8") as f:
         f.write(content)
     print("patched latency targets (Baidu/Naver/Google/YouTube)")
-    
+
+def patch_dayjs_locale():
+    path = "src/helper/dayjs.ts"
+    with open(path, encoding="utf-8") as f:
+        content = f.read()
+
+    if "dayjs/locale/ko" not in content:
+        content = content.replace(
+            "import 'dayjs/locale/ru'",
+            "import 'dayjs/locale/ko'\nimport 'dayjs/locale/ru'",
+        )
+        print("patched dayjs locale (added ko)")
+    else:
+        print("dayjs ko locale already present")
+
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(content)
+        
 if __name__ == "__main__":
     patch_lang_enum()
     patch_i18n_index()
@@ -264,3 +281,4 @@ if __name__ == "__main__":
     patch_update_check_url()
     customize_version_display()
     patch_latency_targets()
+    patch_dayjs_locale()
