@@ -140,7 +140,7 @@ def customize_version_display():
     )
 
     new_block = '''<a
-          href="https://github.com/hckwon767/dashboard-ko"
+          href=""
           target="_blank"
           class="text-lg font-semibold"
         >
