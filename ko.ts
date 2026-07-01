@@ -274,7 +274,7 @@ const ko = {
   customTheme: '사용자 정의 테마',
   unavailableProxy: '사용 불가능한 프록시 숨기기',
   protocolTips:
-    'HTTP 백엔드에 연결하려고 하지만 zashboard가 HTTPS를 통해 제공되고 있습니다. 이로 인해 연결 오류가 발생할 수 있습니다. 브라우저 설정에서 안전하지 않은 콘텐츠를 허용하거나 http://board.zash.run.place 와 같은 zashboard의 HTTP 버전을 사용하세요.',
+    'HTTP 백엔드에 연결하려고 하지만 대시보드가 HTTPS를 통해 제공되고 있습니다. 이로 인해 연결 오류가 발생할 수 있습니다. 브라우저 설정에서 안전하지 않은 콘텐츠를 허용하거나 http://board.zash.run.place 와 같은 대시보드의 HTTP 버전을 사용하세요.',
   global: '글로벌 (GLOBAL)',
   direct: '직접 연결 (DIRECT)',
   lowLatencyDesc: '노란색 경계값',
@@ -340,7 +340,7 @@ const ko = {
   // Page controls and interaction
   independentLatencyTest: '독립적인 지연 시간 테스트',
   independentLatencyTestTip:
-    '활성화하면 지연 시간 테스트 시 zashboard의 URL 설정 대신 구성 파일에 지정된 URL을 사용합니다. 지연 시간은 정책 그룹에 설정된 URL을 기반으로 독립적으로 표시됩니다.',
+    '활성화하면 지연 시간 테스트 시 대시보드의 URL 설정 대신 구성 파일에 지정된 URL을 사용합니다. 지연 시간은 정책 그룹에 설정된 URL을 기반으로 독립적으로 표시됩니다.',
   search: '검색',
   searchProxyGroup: '프록시 그룹 검색',
   searchProxyNode: '프록시 노드 검색',
@@ -422,7 +422,7 @@ const ko = {
   flushSmartWeights: '스마트 가중치 초기화',
   IPInfoAPI: 'IP 정보 API',
   IPInfoAPITip:
-    '이 API는 IP 확인 중 글로벌 노드 IP 정보를 조회하거나, 연결 상세 정보 및 zashboard의 DNS 조회 기능에서 IP 지오로케이션(위치 정보)을 조회하는 데 사용됩니다.',
+    '이 API는 IP 확인 중 글로벌 노드 IP 정보를 조회하거나, 연결 상세 정보 및 대시보드의 DNS 조회 기능에서 IP 지오로케이션(위치 정보)을 조회하는 데 사용됩니다.',
   general: '일반',
   groupProxiesByProvider: '공급자별 프록시 그룹화',
   useSmartGroupSort: '사용 빈도순으로 스마트 그룹 정렬',
@@ -430,7 +430,7 @@ const ko = {
   autoDisconnectIdleUDP: '유휴 UDP 연결 자동 끊기',
   autoDisconnectIdleUDPTime: 'UDP 유휴 시간',
   autoDisconnectIdleUDPTip:
-    '활성화하면 zashboard를 열 때 설정된 시간보다 오랫동안 유휴 상태였던 UDP 연결을 종료합니다. 자동으로 끊어지지 않는 UDP 연결을 정리하는 데 도움이 됩니다.',
+    '활성화하면 대시보드를 열 때 설정된 시간보다 오랫동안 유휴 상태였던 UDP 연결을 종료합니다. 자동으로 끊어지지 않는 UDP 연결을 정리하는 데 도움이 됩니다.',
   customGlobalNode: '사용자 정의 글로벌 노드',
   connectionTopology: '연결 토폴로지',
   editBackend: '백엔드 편집',
@@ -442,11 +442,11 @@ const ko = {
   checking: '확인 중...',
   copySuccess: '성공적으로 복사되었습니다',
   importFromBackendTip:
-    '기본 ./zashboard-settings.json 경로는 ui 폴더 내에 있습니다. ui 폴더가 존재하고 구성 파일이 포함되어 있는지 확인하세요.',
+    '기본 경로는 ui 폴더 내에 있습니다. ui 폴더가 존재하고 구성 파일이 포함되어 있는지 확인하세요.',
   importFailed: '가져오기 실패, URL을 확인해 주세요: {url}',
   autoImportFromUrl: '자동 가져오기',
   autoImportFromUrlTip:
-    '활성화하면 zashboard를 열 때 URL에서 설정을 자동으로 가져옵니다. 해시(Hash)가 마지막으로 가져온 해시와 다르면 설정을 다시 가져오고 페이지를 새로고침합니다.',
+    '활성화하면 대시보드를 열 때 URL에서 설정을 자동으로 가져옵니다. 해시(Hash)가 마지막으로 가져온 해시와 다르면 설정을 다시 가져오고 페이지를 새로고침합니다.',
   getting: '가져오는 중...',
   mmdbSizeTip: 'MMDB 형식의 GEO 파일을 사용하는 경우 이 숫자는 0이 됩니다.',
   displayFinalOutbound: '최종 아웃바운드 노드 표시',
