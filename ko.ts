@@ -119,7 +119,7 @@ const ko = {
     'WebUSB는 보안 컨텍스트가 필요합니다. localhost 또는 HTTPS를 통해 대시보드를 열어주세요.',
   usbipUnsupportedBrowser:
     '장치를 제공하려면 Chromium 기반 브라우저로 대시보드를 이용하거나 macOS/Android의 sing-box 그래픽 클라이언트를 사용하세요.',
-  usbipClaimBlockedClass::
+  usbipClaimBlockedClass:
     '“{label}”을(를) 공유할 수 없습니다: 브라우저가 이 장치의 인터페이스 클래스(HID, 저장장치, 오디오, 비디오 등) 공유를 차단합니다.',
   usbipClaimBlockedBusy:
     '“{label}”을(를) 공유할 수 없습니다: 다른 프로그램이나 드라이버가 사용 중입니다. 장치를 사용하는 프로그램을 종료한 후 다시 시도하세요.',
