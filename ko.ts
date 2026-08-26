@@ -398,6 +398,7 @@ const ko = {
   topologyCharts: '토폴로지 차트',
   earthGlobeCard: '글로벌 연결 지도',
   earthGlobeTitle: '글로벌 연결 지도',
+  earthProjection: '투영',
   earthVisualStyle: '지구본 스타일',
   earthVisualStyle_space: '우주',
   earthVisualStyle_flat: '평면',
