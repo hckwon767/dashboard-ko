@@ -49,6 +49,14 @@ const ko = {
   outbound: '아웃바운드',
   proxyGroup: '프록시 그룹',
   sortBy: '정렬 기준',
+  sortAToZ: '가 → 하 (A → Z)',
+  sortZToA: '하 → 가 (Z → A)',
+  sortLargestFirst: '큰 항목부터',
+  sortSmallestFirst: '작은 항목부터',
+  sortNewestFirst: '최신순',
+  sortOldestFirst: '오래된순',
+  groupBy: '그룹화 기준',
+  noGrouping: '그룹화 없음',
   rule: '규칙',
   sourceIP: '소스 IP',
   activeConnections: '활성',
@@ -412,6 +420,8 @@ const ko = {
   earthExpand: '지구본 확대',
   earthCollapse: '지구본 복원',
   earthConnectionLine: '연결 경로',
+  earthLegend: '엔드포인트 범례',
+  earthLegendProxied: '프록시 경유',
   earthDatabaseChecking: '로컬 도시 데이터베이스 확인 중…',
   earthDatabaseLoading: '캐시된 도시 데이터베이스 로드 중…',
   earthDatabaseConsentTitle: '로컬 도시 데이터베이스를 다운로드하시겠습니까?',
@@ -542,5 +552,5 @@ const ko = {
   folder_delete_confirm: '"{name}" 폴더를 삭제하시겠습니까?',
 }
 
-export type LANG_MESSAGE = typeof ko
+export type LANG_MESSAGE = typeof en
 export default ko
