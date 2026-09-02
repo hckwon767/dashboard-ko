@@ -57,6 +57,8 @@ const ko = {
   sortOldestFirst: '오래된순',
   groupBy: '그룹화 기준',
   noGrouping: '그룹화 없음',
+  expandAllGroups: '모든 그룹 펼치기',
+  collapseAllGroups: '모든 그룹 접기',
   rule: '규칙',
   sourceIP: '소스 IP',
   activeConnections: '활성',
@@ -173,6 +175,9 @@ const ko = {
   ruleSettings: '규칙 설정',
   connectionDetails: '연결 상세 정보',
   customTheme: '사용자 정의 테마',
+  customCSS: '사용자 정의 CSS',
+  customCSSTip:
+    '아래 스타일은 페이지에 있는 그대로 주입됩니다. 잘못된 규칙은 레이아웃을 깨뜨릴 수 있습니다.',
   unavailableProxy: '사용 불가능한 프록시 숨기기',
   protocolTips:
     'HTTP 백엔드에 연결하려고 하지만 zashboard가 HTTPS를 통해 제공되고 있습니다. 이로 인해 연결 오류가 발생할 수 있습니다. 브라우저 설정에서 안전하지 않은 콘텐츠를 허용하거나 http://board.zash.run.place 와 같은 zashboard의 HTTP 버전을 사용하세요.',
