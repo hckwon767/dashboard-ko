@@ -109,6 +109,7 @@ const ko = {
   ruleCount: '규칙 수',
   hitCount: '일치 횟수',
   missCount: '누락 횟수',
+  hitMissCount: '일치 / 누락 횟수',
   behavior: '동작',
   vehicleType: '차량 유형',
   customTableColumns: '테이블 열 사용자 정의',
@@ -143,6 +144,7 @@ const ko = {
   automaticDisconnection: '노드 전환 시 자동 연결 끊기',
   backend: '백엔드',
   tunMode: 'TUN 모드',
+  tunStack: 'TUN 스택',
   upgradeCore: '코어 업그레이드',
   upgradeCoreConfirm:
     '지금 코어를 업그레이드하시겠습니까? 코어가 재시작되며 프록시 서비스가 잠시 중단됩니다.',
@@ -271,6 +273,8 @@ const ko = {
   independentLatencyTestTip:
     '활성화하면 지연 시간 테스트 시 zashboard의 URL 설정 대신 구성 파일에 지정된 URL을 사용합니다. 지연 시간은 정책 그룹에 설정된 URL을 기반으로 독립적으로 표시됩니다.',
   search: '검색',
+  searchVisibleColumns: '표시된 열 검색',
+  searchHiddenColumns: '숨겨진 열도 검색',
   searchProxyGroup: '프록시 그룹 검색',
   searchProxyNode: '프록시 노드 검색',
   proxySearchModeGlobal: '노드 검색',
