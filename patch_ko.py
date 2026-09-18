@@ -188,8 +188,8 @@ def patch_latency_targets():
     with open(path, "w", encoding="utf-8") as f:
         f.write(content)
 
-    # 2) src/composables/overview.ts: ref 이름 변경
-    path = "src/composables/overview.ts"
+    # 2) src/helper/overview.ts: ref 이름 변경 (composables → helper 로 경로 변경됨)
+    path = "src/helper/overview.ts"
     with open(path, encoding="utf-8") as f:
         content = f.read()
 
@@ -217,24 +217,14 @@ def patch_latency_targets():
   getGithubLatencyAPI,
   getYouTubeLatencyAPI,
 } from '@/api/latency'
-import {
-  baiduLatency,
-  cloudflareLatency,
-  githubLatency,
-  youtubeLatency,
-} from '@/composables/overview'""",
+import { baiduLatency, cloudflareLatency, githubLatency, youtubeLatency } from '@/helper/overview'""",
         """import {
   getBaiduLatencyAPI,
   getGoogleLatencyAPI,
   getNaverLatencyAPI,
   getYouTubeLatencyAPI,
 } from '@/api/latency'
-import {
-  baiduLatency,
-  googleLatency,
-  naverLatency,
-  youtubeLatency,
-} from '@/composables/overview'""",
+import { baiduLatency, googleLatency, naverLatency, youtubeLatency } from '@/helper/overview'""",
     )
 
     content = content.replace(
