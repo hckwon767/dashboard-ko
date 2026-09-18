@@ -189,7 +189,7 @@ def patch_latency_targets():
         f.write(content)
 
     # 2) src/composables/overview.ts: ref 이름 변경
-    path = "src/composables/overview.ts"
+    path = "src/helper/overview.ts"
     with open(path, encoding="utf-8") as f:
         content = f.read()
 
