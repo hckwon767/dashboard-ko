@@ -1,5 +1,4 @@
 const ko = {
-  // Navigation
   setup: '설정',
   overview: '개요',
   proxies: '프록시',
@@ -7,7 +6,6 @@ const ko = {
   connections: '연결',
   logs: '로그',
 
-  // Common states and labels
   default: '기본값',
   skip: '건너뛰기',
   online: '온라인',
@@ -20,11 +18,12 @@ const ko = {
   connected: '연결됨',
   copy: '복사',
 
-  // Shared labels and actions
   protocol: '프로토콜',
   host: '호스트',
   port: '포트',
   password: '비밀번호',
+  token: '토큰',
+  backendType: '백엔드 유형',
   submit: '제출',
   cancel: '취소',
   delete: '삭제',
@@ -35,7 +34,6 @@ const ko = {
   memoryUsage: '메모리 사용량',
   noData: '데이터 없음',
 
-  // Backend actions and feedback
   flushFakeIP: 'Fake IP 비우기',
   flushDNSCache: 'DNS 캐시 비우기',
   flushDNSCacheSuccess: 'DNS 캐시를 성공적으로 비웠습니다',
@@ -67,7 +65,6 @@ const ko = {
   logLevel: '로그 레벨',
   logType: '로그 유형',
 
-  // Connections, proxies, and rules pages
   twoColumnProxyGroup: '프록시 그룹 2열 배치',
   type: '유형',
   process: '프로세스',
@@ -86,8 +83,8 @@ const ko = {
   sourceAndDestination: '소스 및 목적지',
   rawData: '원시 데이터',
   geoInfo: 'GeoIP',
-  dl: '다운로드',
-  ul: '업로드',
+  dl: 'DL',
+  ul: 'UL',
   dlSpeed: '다운로드 속도',
   ulSpeed: '업로드 속도',
   settings: '설정',
@@ -139,7 +136,6 @@ const ko = {
   latencydesc: '지연 시간 내림차순',
   latencyasc: '지연 시간 오름차순',
 
-  // Settings sections and dialogs
   language: '언어',
   automaticDisconnection: '노드 전환 시 자동 연결 끊기',
   backend: '백엔드',
@@ -160,7 +156,6 @@ const ko = {
   dots: '점 (Dots)',
   bar: '막대 (Bar)',
 
-  // Settings page
   exportSettings: '설정 내보내기',
   importSettings: '설정 가져오기',
   dashboardSettings: '대시보드 설정',
@@ -209,7 +204,6 @@ const ko = {
   autoSwitchBackend: '연결 가능한 첫 번째 백엔드로 전환',
   noReachableBackend: '연결 가능한 다른 백엔드가 없습니다.',
 
-  // Connection diagnosis
   diagnosisUnauthorized: '잘못된 비밀번호: 백엔드에서 자격 증명을 거부했습니다.',
   diagnosisTimeout: '백엔드가 시간 내에 응답하지 않았습니다.',
   diagnosisBadEndpoint: '주소에 접근할 수 있지만 이 API가 아니거나 경로가 잘못되었습니다.',
@@ -223,7 +217,6 @@ const ko = {
   diagnosisUnreachable:
     '백엔드에 접근할 수 없습니다. 주소와 포트가 올바른지, 코어가 실행 중인지 확인하세요.',
 
-  // Backend settings
   ipv6Test: 'IPv6 테스트',
   socksPort: 'SOCKS 포트',
   httpPort: 'HTTP 포트',
@@ -236,7 +229,6 @@ const ko = {
   normal: '보통',
   large: '크게',
 
-  // Overview page
   autoIPCheckWhenStart: '시작 시 IP 자동 확인',
   autoConnectionCheckWhenStart: '시작 시 연결 상태 자동 확인',
   networkInfo: '네트워크 정보',
@@ -268,7 +260,6 @@ const ko = {
   testFailedTip: '{name}\n테스트 실패',
   updateFinishedTip: '{number}개의 업데이트 완료',
 
-  // Page controls and interaction
   independentLatencyTest: '독립적인 지연 시간 테스트',
   independentLatencyTestTip:
     '활성화하면 지연 시간 테스트 시 zashboard의 URL 설정 대신 구성 파일에 지정된 URL을 사용합니다. 지연 시간은 정책 그룹에 설정된 URL을 기반으로 독립적으로 표시됩니다.',
@@ -338,7 +329,6 @@ const ko = {
   blurIntensity: '블러(흐림) 강도',
   scrollAnimationEffect: '스크롤 애니메이션 효과',
 
-  // Import, export, and upgrade
   importFromFile: '파일에서 가져오기',
   importFromUrl: 'URL에서 가져오기',
   uploadSettingsSuccess: '설정을 성공적으로 업로드했습니다',
@@ -459,7 +449,7 @@ const ko = {
   retry: '다시 시도',
   connectionHistory: '연결 기록',
   ruleHitCountCard: '규칙 일치/누락 통계',
-  honkStatsCard: 'honk 런타임 통계',
+  honkStatsCard: '런타임 통계',
   honkStatsOutbounds: '아웃바운드',
   honkStatsActiveConns: '활성',
   honkStatsErrors: '오류',
@@ -530,12 +520,10 @@ const ko = {
   ruleMissCount: '누락: {count}회',
   ruleLastMiss: '마지막 누락: {time}',
 
-  // Smart Core
   RarelyUsed: '거의 사용되지 않음',
   OccasionalUsed: '가끔 사용됨',
   MostUsed: '가장 많이 사용됨',
 
-  // Proxy folders
   proxyFolderMode: '프록시 폴더 모드',
   folderModeAuto: '자동',
   folderModeOn: '켜짐',
@@ -559,6 +547,66 @@ const ko = {
   folder_preview: '자동 매칭된 그룹',
   folder_no_matches: '매칭된 그룹 없음',
   folder_delete_confirm: '"{name}" 폴더를 삭제하시겠습니까?',
+  apply: '적용',
+  daeDiagnostics: 'dae 진단',
+  daeDnsCache: 'DNS 캐시',
+  daeDnsLog: 'DNS 로그',
+  daeRoutingTrace: '라우팅 추적',
+  daeDatapath: '데이터 패스',
+  daeTraceRun: '추적',
+  daeDropCacheName: '이름으로 제거',
+  daeCached: '캐시됨',
+  daeDatapathKind: '데이터 패스 종류',
+  daeVisibility: '가시성',
+  daeHooks: '훅(Hooks)',
+  daeRouting: '라우팅',
+  daeHealth: '상태',
+  daeConnStateMap: '연결 상태 맵',
+  daeFlowTrace: '결정 추적',
+  daeRuntimeSettings: '런타임 설정',
+  daeSettingsSource_config: '구성 파일에서',
+  daeSettingsSource_runtime: '런타임 오버라이드',
+  daeLogRecords: '로그 버퍼',
+  daeDnsLogRecords: 'DNS 로그 기록',
+  daeMaxFlows: '최대 플로우',
+  daeFlowRetention: '플로우 보존 (초)',
+  daeConfigSources: '구성 소스',
+  daeLines: '줄',
+  daeReadOnly: '읽기 전용',
+  daeValidateSyntax: '구문 검사',
+  daeValidateFull: '전체 검사',
+  daeSaveAndReload: '저장 및 다시 불러오기',
+  daeConfigValid: '구성이 유효합니다',
+  daeConfigInvalid: '구성이 유효하지 않습니다',
+  daeConfigSaved: '저장 및 다시 불러와졌습니다',
+  daeEntries: '노드 및 구독',
+  daeSubscriptions: '구독',
+  daeNodes: '노드',
+  daeAddNode: '노드 추가',
+  daeAddSubscription: '구독 추가',
+  daeDeleteConfirm: '"{name}"을(를) 삭제하시겠습니까?',
+  daeEntryCreated: '생성됨',
+  daeEntryDeleted: '삭제됨',
+  daeGroupUpdated: '프록시 그룹이 업데이트되었습니다',
+  daeGroupPolicy: '정책',
+  daeDefaultMember: '기본 멤버',
+  daeFinalOutbound: '최종 아웃바운드',
+  daeTolerance: '허용 오차 (ms)',
+  daeIdleTimeout: '유휴 제한 시간 (초)',
+  daeInterruptConnections: '연결 끊기',
+  daeGroupReadOnly: '이 프록시 그룹은 API를 통해 편집할 수 없습니다',
+  daeLifecycle: '일시 중지 / 재개',
+  daeSuspend: '일시 중지',
+  daeResume: '재개',
+  daeSuspendConfirm: '엔진을 일시 중지하시겠습니까? 활성 연결이 종료됩니다.',
+  daeSuspendSuccess: '엔진이 일시 중지되었습니다',
+  daeResumeSuccess: '엔진이 재개되었습니다',
+  daeConnectionsTruncated: '전체 {total}개 중 처음 {limit}개의 연결을 표시하는 중입니다',
+  daeRuntime: 'dae 런타임',
+  daeUptime: '가동 시간',
+  daeGeneration: '세대 (Generation)',
+  daeConfigRevision: '구성 리비전',
+  daeMissingInputs: '누락된 입력',
 }
 
 export type LANG_MESSAGE = typeof en
